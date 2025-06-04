@@ -2,10 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: trial-app
-  annotations:
-    prometheus.io/scrape: 'true'
-    prometheus.io/path: '/metrics'
-    prometheus.io/port: '8080'
 spec:
   replicas: 2
   selector:
@@ -27,6 +23,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: trial-service
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/path: '/metrics'
+    prometheus.io/port: '8082'
 spec:
   selector:
     app: trial
@@ -46,8 +46,8 @@ spec:
   endpoints:
     - port: http
       interval: 30s
-      targetPort: 8080
+      targetPort: 8082
       path: /metrics
   selector:
     matchLabels:
-      app: trial
+      app: trial-service
