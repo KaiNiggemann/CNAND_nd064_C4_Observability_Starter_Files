@@ -34,3 +34,18 @@ spec:
     - port: 8082
       targetPort: 8080
   type: LoadBalancer
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: trial-monitor
+  labels:
+    app: trial
+    release: prometheus
+spec:
+  endpoints:
+    - port: http
+      path: /metrics
+  selector:
+    matchLabels:
+      app: trial
