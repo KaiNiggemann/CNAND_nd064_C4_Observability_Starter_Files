@@ -5,7 +5,7 @@ metadata:
   annotations:
     prometheus.io/scrape: 'true'
     prometheus.io/path: '/metrics'
-    prometheus.io/port: '8082'
+    prometheus.io/port: '8080'
 spec:
   replicas: 2
   selector:
@@ -45,6 +45,8 @@ metadata:
 spec:
   endpoints:
     - port: http
+      interval: 30s
+      targetPort: 8080
       path: /metrics
   selector:
     matchLabels:
