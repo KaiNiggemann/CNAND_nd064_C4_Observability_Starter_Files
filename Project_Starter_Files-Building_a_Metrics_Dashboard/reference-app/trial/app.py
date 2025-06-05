@@ -58,7 +58,7 @@ def trace():
         return tag.sub("", text)
 
     with tracer.start_span("get-python-jobs") as span:
-        res = requests.get("https://jobs.github.com/positions.json?description=python")
+        res = requests.get("https://www.github.careers/careers-home/jobs?description=python")
         span.log_kv({"event": "get jobs count", "count": len(res.json())})
         span.set_tag("jobs-count", len(res.json()))
 
