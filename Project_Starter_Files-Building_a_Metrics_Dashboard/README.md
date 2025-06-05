@@ -22,11 +22,14 @@ SLI for *request response time*:
 
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+
 --> SLI availability: 
 * Active pods per service. If there is not at least 1 pod per service the app is not available.
+  
 SLI error rate:
 * Number of requests with status 5xx. The error rate lowers the availability also.
 * Number of requests with status 4xx. The error rate lowers the availability also.
+  
 SLI response time:
 * Response time of requests for backend service. If the response time is too high (>300 ms avg) the customer has to wait to long using the app.
 * Response time of requests for trail service. If the response time is too high (>300 ms avg) the customer has to wait to long using the trial function of the app.
