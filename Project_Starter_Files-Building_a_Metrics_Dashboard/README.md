@@ -13,19 +13,23 @@
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
-+-->+ SLI for *monthly uptime*: The website has an availability of 99,9% per month.
-
-                                The error rate is below 0,1% avg per month.
-                                
-      SLI for *request response time*: The response time is lower than 300ms avg per month.
+--> SLI for *monthly uptime*: 
+* The website has an availability of 99,9% per month.
+* The error rate is below 0,1% avg per month.
+  
+SLI for *request response time*: 
+* The response time is lower than 300ms avg per month.
 
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
-SLI availability: * Active pods per service. If there is not at least 1 pod per service the app is not available.
-SLI error rate: * Number of requests with status 5xx. The error rate lowers the availability also.
-                * Number of requests with status 4xx. The error rate lowers the availability also.
-SLI response time: * Response time of requests for backend service. If the response time is too high (>300 ms avg) the customer has to wait to long using the app.
-                   * Response time of requests for trail service. If the response time is too high (>300 ms avg) the customer has to wait to long using the trial function of the app.
+--> SLI availability: 
+* Active pods per service. If there is not at least 1 pod per service the app is not available.
+SLI error rate:
+* Number of requests with status 5xx. The error rate lowers the availability also.
+* Number of requests with status 4xx. The error rate lowers the availability also.
+SLI response time:
+* Response time of requests for backend service. If the response time is too high (>300 ms avg) the customer has to wait to long using the app.
+* Response time of requests for trail service. If the response time is too high (>300 ms avg) the customer has to wait to long using the trial function of the app.
 
 
 ## Create a Dashboard to measure our SLIs
