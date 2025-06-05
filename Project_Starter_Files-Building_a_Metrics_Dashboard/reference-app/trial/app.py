@@ -59,11 +59,37 @@ def trace():
 
     with tracer.start_span("get-python-jobs") as span:
         res = requests.get("https://www.github.careers/careers-home/jobs?description=python")
-        span.log_kv({"event": "get jobs count", "count": len(res.json())})
-        span.set_tag("jobs-count", len(res.json()))
+        jobs_sample = json.loads("""[
+    {
+        "description": "Looking for a Python Developer to join our team.",
+        "company": "Tech Solutions Inc.",
+        "company_url": "https://techsolutions.example.com",
+        "created_at": "2025-06-01T10:00:00Z",
+        "how_to_apply": "Send your resume to jobs@techsolutions.example.com",
+        "location": "New York, NY",
+        "title": "Python Developer",
+        "type": "Full Time",
+        "url": "https://techsolutions.example.com/jobs/python-developer"
+    },
+    {
+        "description": "Join our dynamic team as a Frontend Engineer.",
+        "company": "Creative Apps LLC",
+        "company_url": "https://creativeapps.example.com",
+        "created_at": "2025-05-28T15:30:00Z",
+        "how_to_apply": "Apply online at our careers page",
+        "location": "San Francisco, CA",
+        "title": "Frontend Engineer",
+        "type": "Contract",
+        "url": "https://creativeapps.example.com/jobs/frontend-engineer"
+    }
+]
+""")
+        
+        span.log_kv({"event": "get jobs count", "count": 2})
+        span.set_tag("jobs-count", 2)
 
         jobs_info = []
-        for result in res.json():
+        for result in jobs_sample:
             jobs = {}
             with tracer.start_span("request-site") as site_span:
                 logger.info(f"Getting website for {result['company']}")
