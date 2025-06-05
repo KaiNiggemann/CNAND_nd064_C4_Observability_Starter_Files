@@ -12,8 +12,11 @@
 
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+
 +-->+ SLI for *monthly uptime*: The website has an availability of 99,9% per month.
+
                                 The error rate is below 0,1% avg per month.
+                                
       SLI for *request response time*: The response time is lower than 300ms avg per month.
 
 ## Creating SLI metrics.
