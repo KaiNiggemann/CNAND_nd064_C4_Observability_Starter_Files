@@ -65,8 +65,9 @@ Affected Area: Trial services
 
 Severity: 1
 
-Description: When loading homepage (\ root) the application is returning a "500 Internal server error". See span 3a6b98f for further details.
+Description: When loading homepage (\ root) the application is returning a "500 Internal server error". See span 3a6b98f (screenshot below) for further details.
 Expected result: main page is shown.
+<img src="./answer_img/jaeger-span.png"/>
 
 
 ## Creating SLIs and SLOs
